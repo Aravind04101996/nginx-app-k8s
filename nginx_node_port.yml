@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nodeport-service
+  labels:
+    product: nginx
+spec:
+  selector:
+     product: nginx #Route service traffic to pods with label keys and values matching this selector
+  ports:
+    - port: 80 # The port that will be exposed by this service.
+      targetPort: 80 # Container Port
+      nodePort: 31231 # Worker Node Port
+  type: NodePort
