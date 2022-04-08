@@ -1,0 +1,12 @@
+apiVersion: v1                      # String , api version of k8s objects
+kind: Pod                           # String, Type of k8s objects
+metadata:                           # map, metadata about objects
+  name: nginx-pod
+  labels:               # map, Key value pairs (like a tag)
+    product: nginx
+spec:                               # Real configuration of k8s object
+  containers:           # List
+    - name: nginx-container
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
